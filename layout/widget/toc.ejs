@@ -32,7 +32,11 @@ function buildToc(toc) {
             <h3 class="menu-label">
                 <%= _p('widget.catalogue', Infinity) %>
             </h3>
-            <%- buildToc(_toc(post.content)) %>
+            <% if (post.encrypt == true) { %>
+                <%- buildToc(_toc(post.origin)) %>
+            <% } else { %>
+                <%- buildToc(_toc(post.content)) %>
+            <% } %>
         </div>
     </div>
 </div>
